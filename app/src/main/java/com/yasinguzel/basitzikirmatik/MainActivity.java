@@ -10,7 +10,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 public class MainActivity extends AppCompatActivity {
+
+
 
     TextView textView;
     int score = 0;
@@ -22,6 +30,11 @@ public class MainActivity extends AppCompatActivity {
     ImageView shape3;
     ImageView shape4;
     ImageView shape5;
+
+    private AdView mAdView;
+    
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +53,24 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         score = sharedPreferences.getInt("zikirCount", 0);
         textView.setText(String.valueOf(score));
+
+        //My Real code : ca-app-pub-9582732495383626~5645803958
+
+        //reklamıd Code : ca-app-pub-9582732495383626/3728666176
+
+        //Asıl try bu : ca-app-pub-3940256099942544/6300978111
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
 
 
 
