@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView shape5;
 
     private AdView mAdView;
-    
+
 
 
     @Override

@@ -175,19 +175,10 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         app:adSize="BANNER"
-        app:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        app:adUnitId="ca-app-pub-9582732495383626/3728666176"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"></com.google.android.gms.ads.AdView>
 
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/secondAdView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
-    </com.google.android.gms.ads.AdView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
