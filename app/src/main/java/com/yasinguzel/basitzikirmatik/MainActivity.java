@@ -2,6 +2,7 @@ package com.yasinguzel.basitzikirmatik;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -36,7 +37,9 @@ public class MainActivity extends AppCompatActivity {
         shape4 = findViewById(R.id.imageView8);
         shape5 = findViewById(R.id.imageView9);
 
-
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        score = sharedPreferences.getInt("zikirCount", 0);
+        textView.setText(String.valueOf(score));
 
 
 
@@ -44,6 +47,20 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("zikirCount", score);
+        editor.apply();
+    }
+
+
+
+
+
 
    public void zikircek(View view){
         if(score < 1000000){
@@ -69,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
             clickCounter = 0;
         }
+
 
         if(clickCounter == 0){
             shape1.setVisibility(View.VISIBLE);
