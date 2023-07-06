@@ -87,5 +87,20 @@
         app:rippleColor="#FFFFFF"
         app:strokeColor="#FFFFFF" />
 
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="32dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="336dp"
+        android:layout_marginEnd="187dp"
+        android:layout_marginBottom="324dp"
+        android:onClick="resetzikir"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

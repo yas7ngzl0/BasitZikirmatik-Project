@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
     int score = 0;
     Button zikirButton;
+    Button resetButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +22,20 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.textView);
         zikirButton = findViewById(R.id.zikirButton);
         zikirButton.setBackgroundColor(Color.TRANSPARENT);
+        resetButton = findViewById(R.id.resetButton);
+        resetButton.setBackgroundColor(Color.TRANSPARENT);
     }
 
    public void zikircek(View view){
-        score++;
-        textView.setText(String.valueOf(score));
+        if(score < 1000000){
+            score++;
+            textView.setText(String.valueOf(score));
+        }else{
+            textView.setText("ERROR");
+        }
+
+
+
    }
 
    public void resetzikir(View view){
