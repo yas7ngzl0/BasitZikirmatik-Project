@@ -1,9 +1,11 @@
 package com.yasinguzel.basitzikirmatik;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -45,10 +47,10 @@ public class MainActivity extends AppCompatActivity {
         resetButton = findViewById(R.id.resetButton);
         resetButton.setBackgroundColor(Color.TRANSPARENT);
         shape1 = findViewById(R.id.imageView4);
-        shape2 = findViewById(R.id.imageView6);
+        /*shape2 = findViewById(R.id.imageView6);
         shape3 = findViewById(R.id.imageView7);
         shape4 = findViewById(R.id.imageView8);
-        shape5 = findViewById(R.id.imageView9);
+        shape5 = findViewById(R.id.imageView9);*/
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         score = sharedPreferences.getInt("zikirCount", 0);
@@ -111,49 +113,37 @@ public class MainActivity extends AppCompatActivity {
 
    }
 
-   public void changecolor(View view){
-        if(clickCounter < 4){
-            clickCounter++;
-        }else{
-            clickCounter = 0;
-        }
+   public void changecolor(View view) {
+       if (clickCounter < 4) {
+           clickCounter++;
+       } else {
+           clickCounter = 0;
+       }
 
 
-        if(clickCounter == 0){
-            shape1.setVisibility(View.VISIBLE);
-            shape2.setVisibility(View.INVISIBLE);
-            shape3.setVisibility(View.INVISIBLE);
-            shape4.setVisibility(View.INVISIBLE);
-            shape5.setVisibility(View.INVISIBLE);
-        }else if(clickCounter == 1){
-            shape1.setVisibility(View.INVISIBLE);
-            shape2.setVisibility(View.VISIBLE);
-            shape3.setVisibility(View.INVISIBLE);
-            shape4.setVisibility(View.INVISIBLE);
-            shape5.setVisibility(View.INVISIBLE);
 
-        }else if(clickCounter == 2){
-            shape1.setVisibility(View.INVISIBLE);
-            shape2.setVisibility(View.INVISIBLE);
-            shape3.setVisibility(View.VISIBLE);
-            shape4.setVisibility(View.INVISIBLE);
-            shape5.setVisibility(View.INVISIBLE);
+       if (clickCounter == 0) {
+           // Renk kodunu Drawable nesnesine dönüştürün
+           Drawable yellowDrawable = ContextCompat.getDrawable(shape1.getContext(), R.drawable.shape1);
+           shape1.setImageDrawable(yellowDrawable);
+       } else if (clickCounter == 1) {
 
-        }else if(clickCounter == 3){
-            shape1.setVisibility(View.INVISIBLE);
-            shape2.setVisibility(View.INVISIBLE);
-            shape3.setVisibility(View.INVISIBLE);
-            shape4.setVisibility(View.VISIBLE);
-            shape5.setVisibility(View.INVISIBLE);
+           Drawable grayDrawable = ContextCompat.getDrawable(shape1.getContext(), R.drawable.shape2);
+           shape1.setImageDrawable(grayDrawable);
+       } else if (clickCounter == 2) {
 
-        }else{
-            shape1.setVisibility(View.INVISIBLE);
-            shape2.setVisibility(View.INVISIBLE);
-            shape3.setVisibility(View.INVISIBLE);
-            shape4.setVisibility(View.INVISIBLE);
-            shape5.setVisibility(View.VISIBLE);
+           Drawable greenDrawable = ContextCompat.getDrawable(shape1.getContext(), R.drawable.shape3);
+           shape1.setImageDrawable(greenDrawable);
+       } else if (clickCounter == 3) {
 
-        }
+           Drawable blueDrawable = ContextCompat.getDrawable(shape1.getContext(), R.drawable.shape4);
+           shape1.setImageDrawable(blueDrawable);
+       } else {
 
+           Drawable redDrawable = ContextCompat.getDrawable(shape1.getContext(), R.drawable.shape5);
+           shape1.setImageDrawable(redDrawable);
+
+
+       }
    }
 }
